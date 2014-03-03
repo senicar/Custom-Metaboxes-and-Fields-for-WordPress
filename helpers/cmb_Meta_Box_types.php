@@ -373,6 +373,15 @@ class cmb_Meta_Box_types {
 		echo '</select>', self::desc( true );
 	}
 
+	public static function select_multiple( $field, $meta ) {
+		$meta = array_map('intval',$meta);
+		echo '<select name="', $field['id'], '[]" id="', $field['id'], '" multiple>';
+		foreach ($field['options'] as $option) {
+			echo '<option value="', $option['value'], '"', in_array($option['value'], $meta) ? ' selected="selected"' : '', '>', $option['name'], '</option>';
+		}
+		echo '</select>', self::desc( true );
+	}
+
 	public static function radio( $field, $meta ) {
 		$meta = self::esc( $meta );
 		echo '<ul>';

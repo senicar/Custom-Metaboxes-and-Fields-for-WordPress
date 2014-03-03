@@ -393,7 +393,7 @@ class cmb_Meta_Box {
 			$field['default'] = apply_filters( 'cmb_std_filter', $field['default'], $field, $object_id, $object_type );
 			$field['allow'] = 'file' == $field['type'] && ! isset( $field['allow'] ) ? array( 'url', 'attachment' ) : array();
 			$field['save_id'] = 'file' == $field['type'] && ! isset( $field['save_id'] );
-			$field['multiple'] = 'multicheck' == $field['type'];
+			$field['multiple'] = ('multicheck' == $field['type'] || 'select_multiple' == $field['type']);
 
 			// Allow an override for the field's value
 			// (assuming no one would want to save 'cmb_no_override_val' as a value)
@@ -508,7 +508,7 @@ class cmb_Meta_Box {
 			$name = $field['id'];
 
 			if ( ! isset( $field['multiple'] ) )
-				$field['multiple'] = ( 'multicheck' == $field['type'] ) ? true : false;
+				$field['multiple'] = ( 'multicheck' == $field['type'] || 'select_multiple' == $field['type'] ) ? true : false;
 
 			$old = self::get_data();
 			$new = isset( $_POST[ $field['id'] ] ) ? $_POST[ $field['id'] ] : null;
