@@ -159,6 +159,17 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 				),
 			),
 			array(
+				'name'    => __( 'Test Select Multiple', 'cmb' ),
+				'desc'    => __( 'field description (optional)', 'cmb' ),
+				'id'      => $prefix . 'test_select_multiple',
+				'type'    => 'select_multiple',
+				'options' => array(
+					array( 'name' => __( 'Option One', 'cmb' ), 'value' => 'standard', ),
+					array( 'name' => __( 'Option Two', 'cmb' ), 'value' => 'custom', ),
+					array( 'name' => __( 'Option Three', 'cmb' ), 'value' => 'none', ),
+				),
+			),
+			array(
 				'name'    => __( 'Test Radio inline', 'cmb' ),
 				'desc'    => __( 'field description (optional)', 'cmb' ),
 				'id'      => $prefix . 'test_radio_inline',
