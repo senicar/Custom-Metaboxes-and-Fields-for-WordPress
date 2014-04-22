@@ -560,6 +560,7 @@ class cmb_Meta_Box {
 				self::save_field( self::sanitize_field( $field ), $field );
 			}
 
+			do_action( "cmb_save_{$field_args['type']}_field_types", $field_args['id'], $field, $meta_box['id'], self::$updated, $meta_box );
 		}
 
 		// If options page, save the updated options
